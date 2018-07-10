@@ -1,6 +1,6 @@
 FROM node:4.4.3
 
-LABEL maintainer="mir4p"
+LABEL maintainer="secf00tprint"
 
 RUN useradd -ms /bin/bash node
 COPY serverfiles/ /home/node/serverfiles/
