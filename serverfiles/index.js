@@ -7,6 +7,7 @@ var http = require('http');
 var fs = require('fs');
 var sqlite3 = require('sqlite3').verbose();
 var qs = require('querystring');
+var url = require('url');
 var db = new sqlite3.Database(':memory:');
 
 /**
@@ -16,12 +17,24 @@ var db = new sqlite3.Database(':memory:');
  */
 var server = http.createServer(function (request, response) 
 {
-    if (request.method.toLowerCase() == 'get') 
+
+    if (request.method.toLowerCase() == 'get')
     {
-		displayEnterComment(response);
-    } 
-    else if (request.method.toLowerCase() == 'post') 
+        var url_parts = url.parse(request.url, true);
+        var query = url_parts.query;
+
+        if ("comment" in query)
+			{
+                displayShowComment(response, query.comment);
+			}
+		else
+		{
+            displayEnterComment(response);
+        }
+    }
+    else if (request.method.toLowerCase() == 'post')
     {
+
         var body = '';
 
         request.on('data', function (data) {
@@ -30,7 +43,7 @@ var server = http.createServer(function (request, response)
 
         request.on('end', function () {
             var post = qs.parse(body);
-            
+
 	    if ("enter_comment" in post)
 	    {
 	    	if (post.enter_comment.toLowerCase() == 'show')
@@ -54,7 +67,7 @@ var server = http.createServer(function (request, response)
                        displayListComment(response);
 		}
             }
-	    
+
         });
     }
 });

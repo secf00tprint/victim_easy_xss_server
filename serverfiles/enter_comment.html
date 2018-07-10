@@ -3,14 +3,26 @@
    <body>
       <form action="" method="post">
          <fieldset>
-            <label for="comment_input">Comment:</label>
-	    <br />
+            <label for="comment_input">Comment (using POST):</label>
+	        <br>
+            <br>
             <textarea id="comment_input" name="comment_field" placeholder="Enter a comment"></textarea>
-            <br />
-	    <br />
+            <br>
+	        <br>
             <input type="submit" name="enter_comment" value="Show" />
             <input type="submit" name="enter_comment" value="Store" />
             <input type="submit" name="enter_comment" value="List" />
+         </fieldset>
+      </form>
+      <form action="" method="get">
+         <fieldset>
+            <label for="comment_input_get">Comment (using GET):</label>
+            <br>
+            <br>
+            <textarea id="comment_input_get" name="comment" placeholder="Enter a comment"></textarea>
+            <br>
+            <br>
+            <input type="submit" name="enter_comment" value="Show" />
          </fieldset>
       </form>
    </body>

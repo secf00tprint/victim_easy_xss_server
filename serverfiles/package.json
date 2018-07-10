@@ -1,18 +1,17 @@
 {
-  "name": "xss-form",
+  "name": "victim_easy_xss_server",
   "version": "1.0.0",
   "description": "This program explains how reflective and stored xss works",
-  "main": "form.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "xss"
   ],
-  "author": "Matthias",
-  "license": "ISC",
+  "author": "secf00tprint",
+  "license": "Apache-2.0",
   "dependencies": {
-    "formidable": "^1.1.1",
     "sqlite3": "^3.1.13"
   }
 }
