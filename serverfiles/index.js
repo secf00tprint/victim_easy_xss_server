@@ -181,7 +181,8 @@ function displayFormFile(formfile, response, stringToBeReplaced, replaceString )
 
 	response.writeHead(200, {
             'Content-Type': 'text/html',
-            'X-XSS-Protection':'0',		
+            'X-XSS-Protection':'0',	
+	    'Access-Control-Allow-Origin':'*',	
             'Content-Length': data.length,
         });
         response.write(data);
